@@ -1,11 +1,11 @@
-const DataTypes = require("sequelize");
-const sequelize = require("../config/config.json");
+module.exports = function (sequelize, Datatypes) {
+    const Product = sequelize.define("Product", {
+        product_name: Datatypes.STRING,
+        department_name: Datatypes.STRING,
+        price: Datatypes.INTEGER,
+        stock_quantity: Datatypes.INTEGER
+    })
 
-
-
-
-module.exports = function (sequelize, DataTypes) {
-    const Product = sequelize.define("Product") {
-        name: DataTypes.STRING
-    }
-};
+    console.log("Product Table made")
+    return Product;
+}

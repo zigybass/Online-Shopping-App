@@ -1,0 +1,13 @@
+body {
+    background: rgb(209, 209, 209);
+}
+
+#jumbo {
+    text-align: center;
+    background: rgb(8, 73, 110);
+    color: #ffffff;
+}
+
+.row {
+    margin: 20px;
+}

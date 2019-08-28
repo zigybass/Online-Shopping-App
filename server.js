@@ -9,6 +9,8 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+// app.get("/", (req, res) => res.sendFile(""))
+
 
 db.sequelize.sync({ force: true }).then(function () { 
 app.listen(PORT, function () {
