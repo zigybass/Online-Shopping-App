@@ -1,3 +1,11 @@
-const db = require("../models")
+const db = require("../models");
 
-app.get()
+module.exports = function (app) {
+
+    app.get("/", function (req, res) {
+        db.Products.findAll({}).then(function (data) {
+            res.json(data)
+        });
+    })
+}
+
