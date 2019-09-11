@@ -46,14 +46,14 @@ $(document).ready( function() {
     $("#cart").on("click", function (e) {
         e.preventDefault(); 
         console.log(shopCart);
-        let total;
+        let total = 0;
         for (i = 0; i < shopCart.length; i++) {
             // let addPrice = parseInt(shopCart[i].price);
             let numPrice = Object.values(shopCart[i])
             // console.log(Object.values(shopCart[i]))
-            // total += parseInt(numPrice[0])
-            console.log( typeof numPrice )
-            console.log(numPrice)
+            total += parseInt(numPrice)
+            // console.log( typeof numPrice )
+            console.log(parseInt(numPrice));
         }
        console.log(total)
     })
