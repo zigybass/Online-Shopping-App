@@ -11,8 +11,15 @@ module.exports = function (app) {
         })
     })
 
+    //load front end with products in stock
     app.get("/api/load", function (req, res) {
-        db.Products.findAll().then( dbProducts => {
+        db.Products.findAll({ 
+            where: {
+                stock_quantity: {
+                    [Op.gt]: 0
+                }
+            }
+        }).then( dbProducts => {
             res.json(dbProducts)
     })
 })

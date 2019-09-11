@@ -16,3 +16,9 @@ body {
     float: right;
 }
 
+#products {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
