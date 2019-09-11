@@ -16,6 +16,9 @@ module.exports = function (sequelize, Datatypes) {
             type: Datatypes.INTEGER,
             allowNull: false
     },
+        Description: {
+            type: Datatypes.STRING,
+        }
 
     },{
         timestamps: false
