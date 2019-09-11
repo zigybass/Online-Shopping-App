@@ -1,19 +1,20 @@
 $(document).ready( function() {
 
-    $.get("/", function (data) {
+    $.get("/", function () {
+
+        // renderProducts(req.body);
+    })
+
+    $.get("/api/load", function (data) {
         console.log(data)
-        // renderProducts(data);
     })
 
 
     function renderProducts (data) {
-        for (i = 0; i < data.length; i++ ) {
-        const bootCard = $("<div>").addClass("card");
-        const cardBody = $("<div>").addClass("card-body");
-        const cardHead = $("<h5>").addClass("card-title");
-        const pTag = $("<p>").addClass("card-text");
-        const aTag = $("<a>").addClass("btn btn-primary");
-        }
+        console.log("render test")
+        // for (i = 0; i < data.length; i++ ) {
+        //     $("#products").append()
+        // }
     };
 
 
