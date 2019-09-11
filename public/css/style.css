@@ -16,9 +16,14 @@ body {
     float: right;
 }
 
-#products {
+#productsList {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
+}
+
+.card {
+    margin: 20px;
+    background: rgb(226, 226, 226)
 }
 
