@@ -23,36 +23,45 @@ $(document).ready( function() {
               <h5 class="card-title">${dbProducts[i].product_name}</h5>
               <p class="card-text">Description: ${dbProducts[i].Description}</p>
               <p>Price: $${dbProducts[i].price}</p>
-              <form class="products" name="${dbProducts[i].product_name}" value="${dbProducts[i].price}">
+              <form>
               <fieldset>
               <legend>Quantity:</legend>
-              <input type="text" maxlength="5" size="6">
+              <input id="qnty${[i]}" type="text" maxlength="5" size="6">
               <br>
-              <button class="btn btn-secondary btn-sm 
-              ">Add to Cart</button>
+              <button data-id="qnty${[i]}" id="${dbProducts[i].id}" something="something" name="${dbProducts[i].product_name}" type="submit" value="${dbProducts[i].price}" class="btn btn-secondary btn-sm products
+              ">Add To Cart</button>
               </fieldset>
               </form>
             </div>
           </div>`
             )
+        // $(document).on("click", `qnty${[i]}`,function (e) {
+        //     e.preventDefault();
+        //     let amount = $(`qnty${[i]}`).val()
+        //     console.log(amount)
+            
+        // })
         }
     };
 
 
     $(document).on("click", ".products", function (e) {
-        e.preventDefault();
+        e.preventDefault(); 
         const name = e.currentTarget.name;
         const price = e.currentTarget.value;
-        console.log(e.currentTarget)
-        const amount = $("input").val();
+        // console.log(e.currentTarget.value);
+        // console.log(e.currentTarget.name)
+        const pId = e.currentTarget.id;
+        const id = e.target.attributes[0].value
+        const amount = $(`#${id}`).val()
         console.log(amount)
         if (amount > 0) {
         // console.log(e.currentTarget.name)
-        console.log(amount)
-        shopCart.push({[name]: [price, amount]})
+        // console.log(amount)
+        shopCart.push({[name]: [pId, price, amount]})
         console.log(shopCart)
         } else {
-            alert("Please type in the quantity you would like to add to cart.")
+            // alert("Please type in the quantity you would like to add to cart.")
         }
     })
 
