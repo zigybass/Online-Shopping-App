@@ -2,6 +2,7 @@ $(document).ready( function() {
 
 
     let shopCart = [];
+
     // $.get("/", function () {
 
     //     // renderProducts(req.body);
@@ -55,10 +56,11 @@ $(document).ready( function() {
         const id = e.target.attributes[0].value
         const amount = $(`#${id}`).val()
         console.log(amount)
+        shopCart.push([name, pId, price, amount]);
+        $("#shopList").append(`<li class="list-group-item"><span>Product: ${name}  </span>  |  <span>Price: $${price}  </span>  |  <span>Quantity: ${amount}</span></li>`)
         if (amount > 0) {
         // console.log(e.currentTarget.name)
         // console.log(amount)
-        shopCart.push({[name]: [pId, price, amount]})
         console.log(shopCart)
         } else {
             // alert("Please type in the quantity you would like to add to cart.")
@@ -71,21 +73,28 @@ $(document).ready( function() {
         e.preventDefault(); 
         runModal();
         console.log(shopCart);
-        let total = 0;
+        let totalCost = 0;
         for (i = 0; i < shopCart.length; i++) {
             // let addPrice = parseInt(shopCart[i].price);
-            let numPrice = Object.values(shopCart[i])
+            let numPrice = shopCart[i][2] * shopCart[i][3];
+            console.log(numPrice)
             // console.log(Object.values(shopCart[i]))
-            total += parseInt(numPrice)
+            totalCost += parseInt(numPrice)
             // console.log( typeof numPrice )
             // console.log(parseInt(numPrice));
         }
-       console.log(total)
+       console.log(totalCost)
+       $("#totalCart").text(`Total Cost: $${totalCost}`)
     })
 
 // Modal scripts
-function runModal () {
+function runModal (totalCost) {
     $("#modal").css("display", "block");
+    // shopCart.map( item => {
+    //     $("#shopList").append(`<li class="list-group-item"><span>Product: ${item[0]}  </span>  |  <span>Price: ${item[2]}  </span>  |  <span>Quantity: ${item[3]}</span></li>`)
+    // })
+    // $("#shopList").append(`<div id="totalCart">Total Cost: $${totalCost}`)
+    
 }
 
 window.onclick = function(event) {
