@@ -49,23 +49,22 @@ $(document).ready( function() {
 
     $(document).on("click", ".products", function (e) {
         e.preventDefault(); 
+        const id = e.target.attributes[0].value;
+        const amount = $(`#${id}`).val();
+
+        if (amount <= 0) {
+            alert("Please enter a valid quantity")
+        } else {
+
         const name = e.currentTarget.name;
         const price = e.currentTarget.value;
-        // console.log(e.currentTarget.value);
-        // console.log(e.currentTarget.name)
         const pId = e.currentTarget.id;
-        const id = e.target.attributes[0].value
-        const amount = $(`#${id}`).val()
         console.log(amount)
+        totalCost += (amount * price);
         shopCart.push([name, pId, price, amount]);
         $("#shopList").append(`<li class="list-group-item listed"><span>Product: ${name}  </span>  |  <span>Price: $${price}  </span>  |  <span>Quantity: ${amount}</span><button type="button" class="btn btn-secondary btn-sm clearItem" id="${amount}" value="${price}">Remove Item</button></li>`)
-        if (amount > 0) {
-        // console.log(e.currentTarget.name)
-        // console.log(amount)
-        console.log(shopCart)
-        } else {
-            // alert("Please type in the quantity you would like to add to cart.")
         }
+        
     })
 
 
@@ -74,15 +73,15 @@ $(document).ready( function() {
         e.preventDefault(); 
         runModal();
         console.log(shopCart);
-        for (i = 0; i < shopCart.length; i++) {
-            // let addPrice = parseInt(shopCart[i].price);
-            let numPrice = shopCart[i][2] * shopCart[i][3];
-            console.log(numPrice)
-            // console.log(Object.values(shopCart[i]))
-            totalCost += parseInt(numPrice)
-            // console.log( typeof numPrice )
-            // console.log(parseInt(numPrice));
-        }
+        // for (i = 0; i < shopCart.length; i++) {
+        //     // let addPrice = parseInt(shopCart[i].price);
+        //     let numPrice = shopCart[i][2] * shopCart[i][3];
+        //     console.log(numPrice)
+        //     // console.log(Object.values(shopCart[i]))
+        //     totalCost += parseInt(numPrice)
+        //     // console.log( typeof numPrice )
+        //     // console.log(parseInt(numPrice));
+        // }
        console.log(totalCost)
        $("#totalCart").text(`Total Cost: $${totalCost}`)
     })
@@ -117,10 +116,14 @@ $(document).on("click", ".clearItem", function (e) {
 
 $(document).on("click", "#completeOrder", function (e) {
     e.preventDefault();
+    if (totalCost <= 0) {
+        alert("Please continue shopping.")
+    } else {
     $("#modal-content h4").text("Thank you for your purchase!");
     $("#shopList").children().remove()
     $("#completeOrder").remove()
     updateDatabase();
+}
 })
 
 function updateDatabase() {
