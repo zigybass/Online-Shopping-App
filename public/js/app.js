@@ -109,10 +109,24 @@ $(document).on("click", "#close", function (e) {
 
 $(document).on("click", ".clearItem", function (e) {
     e.preventDefault();
-    const removeVal = e.currentTarget.value
-    totalCost -= removeVal * e.currentTarget.id
+    const removeVal = e.currentTarget.value;
+    totalCost -= removeVal * e.currentTarget.id;
     $("#totalCart").text(`Total Cost: $${totalCost}`)
     $(this).parent().remove();
 })
+
+$(document).on("click", "#completeOrder", function (e) {
+    e.preventDefault();
+    $("#modal-content h4").text("Thank you for your purchase!");
+    $("#shopList").children().remove()
+    $("#completeOrder").remove()
+    updateDatabase();
+})
+
+function updateDatabase() {
+    $.put("/api/updateInv", function () {
+
+    })
+}
 
 })

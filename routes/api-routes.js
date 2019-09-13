@@ -23,4 +23,8 @@ module.exports = function (app) {
             res.json(dbProducts)
     })
 })
+
+    app.put("/api/updateInv", function (req, res) {
+
+    })
 }
