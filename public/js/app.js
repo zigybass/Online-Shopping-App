@@ -11,9 +11,32 @@ $(document).ready( function() {
     // grabs db data and sends to render function
     $.get("/api/load", function (data) {
         console.log(data)
-        renderProducts(data)
+        const availProducts = [];
+        const notAvailProducts = [];
+        data.forEach( product => {
+            (product.stock_quantity > 10) ? availProducts.push(product) : notAvailProducts.push(product)
+        })
+        renderProducts(availProducts)
+        renderUnavail(notAvailProducts)
+        console.log(notAvailProducts)
     })
 
+
+    function renderUnavail(unavailProducts) {
+        for (i = 0; i < unavailProducts.length; i++ ) {
+            // console.log(dbProducts[i])
+            $("#productsList").append(`
+        
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Item Currently Unavailable: ${unavailProducts[i].product_name}</h5>
+              <p class="card-text">Description: ${unavailProducts[i].Description}</p>
+
+            </div>
+          </div>`
+            
+)}
+    };
 
     function renderProducts (dbProducts) {
         for (i = 0; i < dbProducts.length; i++ ) {
@@ -36,15 +59,9 @@ $(document).ready( function() {
               </form>
             </div>
           </div>`
-            )
-        // $(document).on("click", `qnty${[i]}`,function (e) {
-        //     e.preventDefault();
-        //     let amount = $(`qnty${[i]}`).val()
-        //     console.log(amount)
             
-        // })
-        }
-    };
+)}
+};
 
 
     $(document).on("click", ".products", function (e) {
@@ -128,7 +145,9 @@ $(document).on("click", "#completeOrder", function (e) {
 
 function updateDatabase() {
     $.put("/api/updateInv", function () {
-
+        const invUpdate = {
+            changes: shopCart
+        }
     })
 }
 
