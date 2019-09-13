@@ -2,6 +2,7 @@ $(document).ready( function() {
 
 
     let shopCart = [];
+    let totalCost = 0;
 
     // $.get("/", function () {
 
@@ -57,7 +58,7 @@ $(document).ready( function() {
         const amount = $(`#${id}`).val()
         console.log(amount)
         shopCart.push([name, pId, price, amount]);
-        $("#shopList").append(`<li class="list-group-item"><span>Product: ${name}  </span>  |  <span>Price: $${price}  </span>  |  <span>Quantity: ${amount}</span></li>`)
+        $("#shopList").append(`<li class="list-group-item listed"><span>Product: ${name}  </span>  |  <span>Price: $${price}  </span>  |  <span>Quantity: ${amount}</span><button type="button" class="btn btn-secondary btn-sm clearItem" id="${amount}" value="${price}">Remove Item</button></li>`)
         if (amount > 0) {
         // console.log(e.currentTarget.name)
         // console.log(amount)
@@ -73,7 +74,6 @@ $(document).ready( function() {
         e.preventDefault(); 
         runModal();
         console.log(shopCart);
-        let totalCost = 0;
         for (i = 0; i < shopCart.length; i++) {
             // let addPrice = parseInt(shopCart[i].price);
             let numPrice = shopCart[i][2] * shopCart[i][3];
@@ -105,6 +105,14 @@ window.onclick = function(event) {
 $(document).on("click", "#close", function (e) {
     e.preventDefault();
     $("#modal").css("display", "none")
+})
+
+$(document).on("click", ".clearItem", function (e) {
+    e.preventDefault();
+    const removeVal = e.currentTarget.value
+    totalCost -= removeVal * e.currentTarget.id
+    $("#totalCart").text(`Total Cost: $${totalCost}`)
+    $(this).parent().remove();
 })
 
 })
