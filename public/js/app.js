@@ -77,7 +77,7 @@ $(document).ready(function() {
     if (amount <= 0) {
       alert("Please enter a valid quantity");
     } else if (stock < 0) {
-      alert("Not enough product to fulfill order. Enter a smaller quantity.");
+      alert(`Not enough inventory to fulfill order. Only ${e.currentTarget.id} left.`);
     } else {
       const name = e.currentTarget.name;
       const price = e.currentTarget.value;
