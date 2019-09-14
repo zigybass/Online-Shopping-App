@@ -72,7 +72,7 @@ $(document).ready(function() {
     const stock = e.currentTarget.id - amount;
     const prodId = $(this).attr("prodid");
     console.log(shopCart);
-    console.log(stock)
+    console.log(stock);
 
     if (amount <= 0) {
       alert("Please enter a valid quantity");
@@ -83,6 +83,7 @@ $(document).ready(function() {
       const price = e.currentTarget.value;
       totalCost += amount * price;
       shopCart.push([name, stock, price, amount, prodId]);
+     
       $("#shopList").append(
         `<li class="list-group-item listed"><span>Product: ${name}  </span>  |  <span>Price: $${price}  </span>  |  <span>Quantity: ${amount}</span><button type="button" class="btn btn-secondary btn-sm clearItem" id="${amount}" value="${price}">Remove Item</button></li>`
       );
@@ -167,7 +168,10 @@ $(document).ready(function() {
       $.ajax({
         method: "PUT",
         url: "/api/updateInv/" + finalShopCart[i][4],
-        data: updateProduct
+        data: updateProduct,
+        dataType: "json"
+      }).then( () => {
+          console.log("sent item")
       });
     };
   }

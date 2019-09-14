@@ -1,7 +1,7 @@
 const path = require("path");
 const db = require("../models");
 const Sequelize = require("sequelize")
-const Op = Sequelize.Op;
+// const Op = Sequelize.Op;
 
 module.exports = function (app) {
 
@@ -23,7 +23,7 @@ module.exports = function (app) {
         db.Products.update(
             stock_quantity = req.body.stock_quantity,
             { where: {
-                id: req.body.id
+                id: req.params.id
             }}
         )
     })
