@@ -156,6 +156,7 @@ $(document).ready(function() {
   function updateDatabase() {
       const finalShopCart = shopCart;
       console.log(finalShopCart);
+      totalCost = 0;
     shopCart = [];
     for ( i = 0; i < finalShopCart.length; i++) {
       updateProduct = {
