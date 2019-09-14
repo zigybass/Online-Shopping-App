@@ -19,12 +19,14 @@ module.exports = function (app) {
 })
 
     app.put("/api/updateInv/:id", function (req, res) {
-        console.log(req.body)
+        console.log("this is:" + req.body.stock_quantity)
         db.Products.update(
-            stock_quantity = req.body.stock_quantity,
+            {stock_quantity: req.body.stock_quantity},
             { where: {
                 id: req.params.id
             }}
-        )
+        ).then( (data) => {
+            res.json(data)
+        })
     })
 }
