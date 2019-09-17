@@ -153,7 +153,7 @@ $(document).ready(function() {
     }
   });
 
-  // NEEDS FINISHING. Create object to send to backend for DB use
+
   function updateDatabase() {
       const finalShopCart = shopCart;
       console.log(finalShopCart);
