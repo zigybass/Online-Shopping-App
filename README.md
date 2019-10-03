@@ -3,7 +3,12 @@
 ## Created and maintained by Chris Zeigler
 ## An Express app that utilizes MySQL and Sequelize to manage products for buyers. 
 
-#### Tools used: MySQL/Sequelize, Node/Express, Javascript, Bootstrap, HTML/CSS
+Tools used: 
+*MySQL/Sequelize
+*Node/Express
+*Javascript 
+*Bootstrap
+*HTML/CSS
 
 <img width="1297" alt="Screen Shot 2019-10-03 at 11 16 50 AM" src="https://user-images.githubusercontent.com/50716272/66140864-d9b53300-e5d0-11e9-91b7-185a93182994.png">
 
