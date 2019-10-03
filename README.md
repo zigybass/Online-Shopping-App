@@ -15,8 +15,6 @@ Users can order 10 different products. Each product is connected to the database
 
 <img width="498" alt="Screen Shot 2019-10-03 at 11 23 20 AM" src="https://user-images.githubusercontent.com/50716272/66140827-c5713600-e5d0-11e9-9424-9c336849cbac.png">
 
-<img width="1297" alt="Screen Shot 2019-10-03 at 11 16 50 AM" src="https://user-images.githubusercontent.com/50716272/66140864-d9b53300-e5d0-11e9-91b7-185a93182994.png">
-
 
 ## Installing
 
