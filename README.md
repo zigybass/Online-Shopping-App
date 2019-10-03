@@ -19,7 +19,16 @@ Users can order 10 different products. Each product is connected to the database
 
 
 ## Installing
+
+Use this in your command line to install the app locally.
 ```
 $ git clone git@github.com:zigybass/Online-Shopping-App.git
 ```
-
+Once the app is local, be sure to run this command to install the necessary dependencies.
+```
+$ npm install
+```
+Then start the server with this command 
+```
+$ npm server.js
+```
