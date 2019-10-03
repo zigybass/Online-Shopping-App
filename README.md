@@ -19,5 +19,7 @@ Users can order 10 different products. Each product is connected to the database
 
 
 ## Installing
-```$ git clone git@github.com:zigybass/Online-Shopping-App.git```
+```
+$ git clone git@github.com:zigybass/Online-Shopping-App.git
+```
 
