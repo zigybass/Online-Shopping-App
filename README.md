@@ -10,7 +10,7 @@ Tools used:
 * Bootstrap
 * HTML/CSS
 
-<img width="1297" alt="Screen Shot 2019-10-03 at 11 16 50 AM" src="https://user-images.githubusercontent.com/50716272/66140864-d9b53300-e5d0-11e9-91b7-185a93182994.png">
+<img width="600" alt="Screen Shot 2019-10-03 at 11 16 50 AM" src="https://user-images.githubusercontent.com/50716272/66140864-d9b53300-e5d0-11e9-91b7-185a93182994.png">
 
 ### Try it out : [here](https://tranquil-dawn-00256.herokuapp.com)
 
